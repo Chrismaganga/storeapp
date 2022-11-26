@@ -8,6 +8,7 @@ admin.site.site_header = 'STOREAPP-API'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('api.urls')),
+    # path('user/', include('users.urls')),
     path('api/', include('rest_framework.urls'))
 ]
 

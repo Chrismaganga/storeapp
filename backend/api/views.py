@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from api.models import Product
 from api.serializers import ProductSerializer
+# from users.serializers import UserSerializer
+# from django.contrib.auth.models import User
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
@@ -45,3 +47,4 @@ class ProductDetailAPIView(generics.RetrieveAPIView):
 
 
 product_detail_view = ProductDetailAPIView.as_view()
+
