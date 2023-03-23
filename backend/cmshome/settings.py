@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'django_filters',
+    'corsheaders',
 ]
 # AUTH_USER_MODEL = 'api.CustomUser'
 # AUTH_USER_MODEL = 'api.User'
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -136,3 +138,6 @@ REST_FRAMEWORK = {
 RESTQL = {
     'QUERY_PARAM_NAME': 'chris'
 }
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+]
