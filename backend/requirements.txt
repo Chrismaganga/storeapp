@@ -10,7 +10,7 @@ djangorestframework==3.14.0
 djangorestframework-queryfields==1.0.0
 drf-flex-fields==1.0.0
 idna==3.4
-Pillow==9.3.0
+Pillow==10.2.0
 pycodestyle==2.10.0
 pyPEG2==2.15.2
 pytz==2022.6
