@@ -9,7 +9,7 @@ django-restql==0.15.3
 djangorestframework==3.14.0
 djangorestframework-queryfields==1.0.0
 drf-flex-fields==1.0.0
-idna==3.4
+idna==3.7
 Pillow==9.3.0
 pycodestyle==2.10.0
 pyPEG2==2.15.2
