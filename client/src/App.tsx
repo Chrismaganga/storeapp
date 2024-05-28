@@ -1,10 +1,32 @@
-import { Button } from "@/components/ui/button"
-import React from 'react'
+import Banner from "./components/banner/Banner";
+import Contact from "./components/contact/Contact";
 
-export default function Home() {
+import Footer from "./components/footer/Footer";
+import FooterBottom from "./components/footer/FooterBottom";
+import Navbar from "./components/navbar/Navbar";
+
+import Resume from "./components/resume/Resume";
+import React from 'react'
+import ProductList from "./components/products/ProductList";
+
+
+function App() {
   return (
-    <div>
-      <Button>Click me</Button>
+    <div className="w-full h-auto bg-bodyColor text-lightText px-4">
+        <Navbar />
+      <div className="max-w-screen-xl mx-auto">
+        <Banner />
+      
+    
+
+     
+        <Contact />
+        <ProductList/>
+         <Footer />
+        <FooterBottom />
+      </div>
     </div>
-  )
+  );
 }
+
+export default App;
