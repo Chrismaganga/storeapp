@@ -35,6 +35,22 @@ function RootComponent() {
         >
           Products
         </Link>
+        <Link
+          to="/category"
+          activeProps={{
+            className: 'font-bold',
+          }}
+        >
+          Category
+        </Link>
+        <Link
+          to="/search"
+          activeProps={{
+            className: 'font-bold',
+          }}
+        >
+          Search
+        </Link>
       </div>
       <hr />
       <Outlet />

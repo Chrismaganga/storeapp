@@ -11,15 +11,36 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SearchImport } from './routes/search'
 import { Route as ProductsImport } from './routes/products'
+import { Route as CategoryImport } from './routes/category'
+import { Route as BlogImport } from './routes/blog'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
+const SearchRoute = SearchImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProductsRoute = ProductsImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CategoryRoute = CategoryImport.update({
+  id: '/category',
+  path: '/category',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BlogRoute = BlogImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -53,11 +74,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogImport
+      parentRoute: typeof rootRoute
+    }
+    '/category': {
+      id: '/category'
+      path: '/category'
+      fullPath: '/category'
+      preLoaderRoute: typeof CategoryImport
+      parentRoute: typeof rootRoute
+    }
     '/products': {
       id: '/products'
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsImport
+      parentRoute: typeof rootRoute
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchImport
       parentRoute: typeof rootRoute
     }
   }
@@ -68,41 +110,63 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/category': typeof CategoryRoute
   '/products': typeof ProductsRoute
+  '/search': typeof SearchRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/category': typeof CategoryRoute
   '/products': typeof ProductsRoute
+  '/search': typeof SearchRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/category': typeof CategoryRoute
   '/products': typeof ProductsRoute
+  '/search': typeof SearchRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/products'
+  fullPaths: '/' | '/about' | '/blog' | '/category' | '/products' | '/search'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/products'
-  id: '__root__' | '/' | '/about' | '/products'
+  to: '/' | '/about' | '/blog' | '/category' | '/products' | '/search'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/category'
+    | '/products'
+    | '/search'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
+  CategoryRoute: typeof CategoryRoute
   ProductsRoute: typeof ProductsRoute
+  SearchRoute: typeof SearchRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
+  CategoryRoute: CategoryRoute,
   ProductsRoute: ProductsRoute,
+  SearchRoute: SearchRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +181,10 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/about",
-        "/products"
+        "/blog",
+        "/category",
+        "/products",
+        "/search"
       ]
     },
     "/": {
@@ -126,8 +193,17 @@ export const routeTree = rootRoute
     "/about": {
       "filePath": "about.tsx"
     },
+    "/blog": {
+      "filePath": "blog.tsx"
+    },
+    "/category": {
+      "filePath": "category.tsx"
+    },
     "/products": {
       "filePath": "products.tsx"
+    },
+    "/search": {
+      "filePath": "search.tsx"
     }
   }
 }
