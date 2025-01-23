@@ -16,7 +16,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'slug', 'category', 'description', 'price', 'stock', 'available', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'slug', 'category', 'description', 'image' ,'price', 'stock', 'available', 'created_at', 'updated_at']
 
     def create(self, validated_data):
         # Automatically set the slug based on the name
